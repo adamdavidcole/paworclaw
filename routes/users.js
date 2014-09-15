@@ -11,7 +11,7 @@ router.get('/', function(req, res) {
 
 
 router.post('/update', function(req, res) {
-    console.log(JSON.stringify(req.body));
+    db.upsertUser(req.body);
     res.end();
 });
 

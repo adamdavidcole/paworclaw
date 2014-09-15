@@ -15,7 +15,7 @@
 </head>
 
 <body id="homepage" ng-controller="controller as ctrl" style="background-image: url('{{currPet.imageurl}}')">
-<div class="web-container" >
+<div class="web-container">
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <div class="navbar-header">
@@ -27,12 +27,13 @@
                 </button>
                 <a class="navbar-brand" href="/"><img src="images/logo.jpg" alt="Paw or Claw" height="50"></a>
             </div>
-            <div class="navbar-collapse collapse">
-                <a href="signin">
-                    <div class="sign-up">
-                        <p>Sign Up</p>
+            <div class="navbar-collapse collapse" >
+                <!--<a href="signin">-->
+                    <div class="sign-up" ng-click="showAddPet = true; $event.stopPropagation()">
+                        <p>+ Add your pet!</p>
                     </div>
-                </a>
+
+                <!--</a>-->
                 <form class="navbar-form navbar-right" role="form">
                     <div class="form-group">
                         <input type="text" placeholder="Email" class="form-control">
@@ -42,10 +43,23 @@
                     </div>
                     <button type="submit" class="btn btn-success">Sign in</button>
                 </form>
-
             </div><!--/.navbar-collapse -->
 
         </div>
+    </div>
+
+
+    <div class="addpet-container" ng-show="showAddPet" ng-click="$event.stopPropagation()">
+        <form novalidate class="simple-form">
+            <span class="addpet-intro">Enter your pet's information</span><br/>
+            Pet's name: <input class="name-input" type="text" ng-model="form.name" placeholder="Sammy" required/><br />
+            About: <input class="about-input" type="text" ng-model="form.email" placeholder="The best dog there can be!" required/><br />
+            Hashtags: <input class="hashtags-input" type="text" ng-model="form.hashtags" placeholder="#dog #meozer #cute" required/><br />
+            Image url: <input class="image-input" type="text" ng-model="form.url" placeholder="http://puppy.com/1d123.jpg" required/><br />
+            <span class="accepts">*Accepts .jpg, .png, .gif </span><br/>
+            <br/>
+            <button class="addpet-btn btn" ng-click="ctrl.add(form)">Add!</button>
+        </form>
     </div>
 
     <!-- Pet info -->
@@ -66,7 +80,7 @@
             </div>
 
             <div id="clawbutton">
-                <button type="submit" id="claw"><img src="images/claw.png" alt="PAW"/></button>
+                <button type="submit" id="claw" ng-click="ctrl.downvote()"><img src="images/claw.png" alt="PAW"/></button>
             </div>
             <div id="welcome" ng-show="justOpened">
                 <h1>Welcome to Paw or Claw!</h1>

@@ -11,20 +11,28 @@ console.log("outside ang");
 
     app.controller('controller', ['$window', '$scope', '$http', '$timeout', function ($window, $scope, $http, $timeout) {
         $scope.justOpened = true;
+        $scope.showAddPet = false;
 
         this.loadUsers = function () {
             $http.get('/users').success(function(docs) {
                 $scope.users = docs;
-                $scope.currPet = docs[0].pets[0];
+                //$scope.currPet = docs[0].pets[0];
             }).error(function () {
                 console.log('fail');
             });
-        }
+        };
+
+        $scope.updateUser = function (user) {
+            $http.post('/users/update',user).success(function () {
+                console.log('user posting');
+            }).error(function () {
+                console.log('failed to post');
+            });
+        };
 
         this.loadUsers();
         $scope.index = 0;
-        $scope.currUser = user1;
-        $scope.currPet = user1.pets[$scope.index];
+        $scope.currPet = user1;
 
         this.getPercantage = function(pet) {
             var score = pet.upvotes/(pet.upvotes+pet.downvotes);
@@ -49,6 +57,13 @@ console.log("outside ang");
 
         this.upvote = function () {
             $scope.currPet.upvotes++;
+            $scope.updateUser($scope.currUser);
+            this.next();
+        };
+
+        this.downvote = function () {
+            $scope.currPet.downvotes++;
+            $scope.updateUser($scope.currUser);
             this.next();
         };
 
@@ -56,19 +71,28 @@ console.log("outside ang");
             $scope.justOpened = false;
         }, 5000);
 
-        $scope.updateUser = function (user) {
-            $http.post('/users/update',user).success(function () {
-                console.log('user posting');
-            }).error(function () {
-                console.log('failed to post');
-            });
-        };
 
-        $scope.currUser.name = "I UPDATED THIS NAME THROUGH HTTP!";
-        $scope.updateUser($scope.currUser);
+        $('.addpet-container').click(function(event){
+            event.stopPropagation();
+        });
+
+        $('html').click(function() {
+            $scope.$apply(function () {
+                $scope.showAddPet = false;
+            });
+            console.log(JSON.stringify($scope.form));
+        });
+
+        this.add = function (form) {
+            console.log(JSON.stringify(form));
+//            $scope.updateUser();
+        }
+
 
 
     }]);
+
+
 
 
 

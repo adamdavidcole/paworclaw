@@ -39,3 +39,62 @@ body {
     -webkit-transition:all ease-in-out 0.5s;
     transition:all ease-in-out 0.5s;
 }
+
+.addpet-container {
+    background: none repeat scroll 0 0 #6CCB9F;
+    border-radius: 4px;
+    color: #FFFFFF;
+    display: block;
+    float: right;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.439;
+    margin-left: 2%;
+    margin-top: 3px;
+    padding: 12px 14px;
+    white-space: nowrap;
+    margin-right: 5%;
+    width: 325px;
+    padding-left: 25px;
+    opacity: .9;
+
+}
+
+.addpet-container input {
+    color: black;
+    margin-bottom: 5px;
+    width: 200px;
+}
+
+.name-input {
+    margin-left: 0px;
+}
+
+.about-input {
+    margin-left: 33px;
+}
+
+.hashtags-input {
+    margin-left: 11px;
+}
+
+.image-input {
+    margin-left: 13px;
+}
+
+.accepts {
+    margin-left: 80px;
+}
+
+.addpet-btn {
+    margin-left: 110px;
+    background-color: #aaaaaa;
+}
+
+.addpet-intro {
+    font-size: 18px;
+    text-align: center;
+    font-weight: 100;
+    display: block;
+}
+
