@@ -2,7 +2,7 @@
 
 var databaseUrl= process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
-    'mongodb://localhost/paworclaw';// "username:password@example.com/mydb"
+    'mongodb://localhost/paworclaw';
 
 
 var collections = ["users"]
@@ -59,8 +59,8 @@ var user2 = {
     imageurl: "/images/cat.jpg"
 };
 //
-//upsertUser(user1);
-//upsertUser(user2);
+upsertUser(user1);
+upsertUser(user2);
 
 exports.upsertUser = upsertUser;
 exports.getUserByKey = getUserByKey;
