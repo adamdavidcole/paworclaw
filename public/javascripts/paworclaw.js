@@ -82,13 +82,13 @@ console.log("outside ang");
 
         this.upvote = function () {
             $scope.currPet.upvotes++;
-            $scope.updatePet($scope.currPet);
+            if ($scope.currPet._id) $scope.updatePet($scope.currPet);
             this.next();
         };
 
         this.downvote = function () {
             $scope.currPet.downvotes++;
-            $scope.updatePet($scope.currPet);
+            if ($scope.currPet._id) $scope.updatePet($scope.currPet);
             this.next();
         };
 
@@ -115,8 +115,8 @@ console.log("outside ang");
             else pet.bio = "Lives life to the fullest";
             if (form.imageurl) pet.imageurl = form.imageurl.trim();
             else pet.imageurl = "/images/pet.jpg";
-            form.upvotes = 1;
-            form.downvotes = 1;
+            pet.upvotes = 1;
+            pet.downvotes = 1;
             pet.hashtags = [];
             form.hashtags = form.hashtags.split(" ");
             for (var i = 0; i < form.hashtags.length; i++) {
