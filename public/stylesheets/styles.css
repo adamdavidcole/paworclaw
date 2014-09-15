@@ -1,0 +1,41 @@
+/*@charset "UTF-8";*/
+/* CSS Document */
+
+
+.pawclawbuttons button {
+    opacity: .9;
+}
+
+.pawclawbuttons button:hover {
+    opacity: 1;
+}
+
+
+.pawclawbuttons button:focus {
+    outline: 0px;
+}
+
+#welcome {
+    opacity:1;
+    -webkit-transition:all ease-in-out 0.5s;
+    transition:all ease-in-out 0.5s;
+    display: inline-block !important;
+}
+
+#welcome.ng-hide-add.ng-hide-add-active,
+#welcome.ng-hide-remove.ng-hide-remove-active {
+    -webkit-transition:all ease-in-out 0.75s;
+    transition:all ease-in-out 0.75s;
+    display: inline-block !important;
+}
+
+#welcome.ng-hide {
+    opacity:0;
+    display: inline-block !important;
+
+}
+
+body {
+    -webkit-transition:all ease-in-out 0.5s;
+    transition:all ease-in-out 0.5s;
+}
