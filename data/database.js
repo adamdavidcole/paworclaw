@@ -54,7 +54,7 @@ var user2 = {
     downvotes: 4,
     imageurl: "/images/cat.jpg"
 };
-
+//
 //upsertUser(user1);
 //upsertUser(user2);
 

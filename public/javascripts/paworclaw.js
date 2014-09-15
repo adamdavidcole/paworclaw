@@ -9,28 +9,52 @@ console.log("outside ang");
 
     var app = angular.module("paworclaw", ['ngAnimate']);
 
+
+    app.directive('httpPrefix', function() {
+        return {
+            restrict: 'A',
+            require: 'ngModel',
+            link: function(scope, element, attrs, controller) {
+                function ensureHttpPrefix(value) {
+                    // Need to add prefix if we don't have http:// prefix already AND we don't have part of it
+                    if(value && !/^(http):\/\//i.test(value)
+                        && 'http://'.indexOf(value) === -1) {
+                        controller.$setViewValue('http://' + value);
+                        controller.$render();
+                        return 'http://' + value;
+                    }
+                    else
+                        return value;
+                }
+                controller.$formatters.push(ensureHttpPrefix);
+                controller.$parsers.push(ensureHttpPrefix);
+            }
+        };
+    });
+
     app.controller('controller', ['$window', '$scope', '$http', '$timeout', function ($window, $scope, $http, $timeout) {
         $scope.justOpened = true;
         $scope.showAddPet = false;
 
-        this.loadUsers = function () {
+        this.loadPets = function () {
             $http.get('/users').success(function(docs) {
-                $scope.users = docs;
+                $scope.pets = docs;
                 //$scope.currPet = docs[0].pets[0];
             }).error(function () {
                 console.log('fail');
             });
         };
 
-        $scope.updateUser = function (user) {
-            $http.post('/users/update',user).success(function () {
+        $scope.updatePet = function (pet) {
+            $http.post('/users/update',pet).success(function () {
                 console.log('user posting');
             }).error(function () {
                 console.log('failed to post');
             });
         };
 
-        this.loadUsers();
+        this.loadPets();
+
         $scope.index = 0;
         $scope.currPet = user1;
 
@@ -50,20 +74,20 @@ console.log("outside ang");
 
         this.next = function () {
             $scope.index++;
-            if ($scope.index >= $scope.users.length) $scope.index = 0;
-            $scope.currPet = $scope.users[$scope.index].pets[0];
+            if ($scope.index >= $scope.pets.length) $scope.index = 0;
+            $scope.currPet = $scope.pets[$scope.index];
         };
 
 
         this.upvote = function () {
             $scope.currPet.upvotes++;
-            $scope.updateUser($scope.currUser);
+            $scope.updatePet($scope.currPet);
             this.next();
         };
 
         this.downvote = function () {
             $scope.currPet.downvotes++;
-            $scope.updateUser($scope.currUser);
+            $scope.updatePet($scope.currPet);
             this.next();
         };
 
@@ -85,7 +109,23 @@ console.log("outside ang");
 
         this.add = function (form) {
             console.log(JSON.stringify(form));
-//            $scope.updateUser();
+            console.log($scope.form.$valid);
+            if (form.name) form.name = form.name.trim();
+            if (form.bio) form.bio = form.bio.trim();
+            if (form.imageurl) form.imageurl = form.imageurl.trim();
+            form.upvotes = 1;
+            form.downvotes = 1;
+            form.hashtags = form.hashtags.split(" ");
+            for (var i = 0; i < form.hashtags.length; i++) {
+                if (form.hashtags[i].length < 2) continue;
+                if (form.hashtags[i].substring(0,1) === '#') {
+                    form.hashtags[i] = form.hashtags[i].substring(1,form.hashtags[i].length);
+                }
+            }
+//            $scope.updatePet(form);
+            $scope.currPet = form;
+            $scope.showAddPet = false;
+            $scope.form = {};
         }
 
 

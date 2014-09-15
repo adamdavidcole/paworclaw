@@ -50,15 +50,16 @@
 
 
     <div class="addpet-container" ng-show="showAddPet" ng-click="$event.stopPropagation()">
-        <form novalidate class="simple-form">
+        <form name="form" novalidate class="simple-form">
             <span class="addpet-intro">Enter your pet's information</span><br/>
             Pet's name: <input class="name-input" type="text" ng-model="form.name" placeholder="Sammy" required/><br />
-            About: <input class="about-input" type="text" ng-model="form.email" placeholder="The best dog there can be!" required/><br />
+            About: <input class="about-input" type="text" ng-model="form.bio" placeholder="The best dog there can be!" required/><br />
             Hashtags: <input class="hashtags-input" type="text" ng-model="form.hashtags" placeholder="#dog #meozer #cute" required/><br />
-            Image url: <input class="image-input" type="text" ng-model="form.url" placeholder="http://puppy.com/1d123.jpg" required/><br />
+            Image url: <input class="image-input" type="url" ng-model="form.imageurl" placeholder="http://puppy.com/1d123.jpg" required http-prefix/><br />
             <span class="accepts">*Accepts .jpg, .png, .gif </span><br/>
+            <span class="require-url" ng-show="form.$error.url">Invalid url, make sure to include 'http://'</span><br/>
             <br/>
-            <button class="addpet-btn btn" ng-click="ctrl.add(form)">Add!</button>
+            <button class="addpet-btn btn" ng-click="ctrl.add(form)" ng-disabled="form.$invalid">Add!</button>
         </form>
     </div>
 

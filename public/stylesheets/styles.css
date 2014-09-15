@@ -88,7 +88,8 @@ body {
 
 .addpet-btn {
     margin-left: 110px;
-    background-color: #aaaaaa;
+    background-color: #F06429;
+    opacity: .9;
 }
 
 .addpet-intro {
@@ -98,3 +99,7 @@ body {
     display: block;
 }
 
+.require-url {
+    margin-left: 18px;
+    color: crimson;
+}
