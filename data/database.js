@@ -1,6 +1,10 @@
 /** database **/
 
-var databaseUrl = "paworclaw"; // "username:password@example.com/mydb"
+var databaseUrl= process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL ||
+    'mongodb://localhost/paworclaw';// "username:password@example.com/mydb"
+
+
 var collections = ["users"]
 var db = require("mongojs").connect(databaseUrl, collections);
 

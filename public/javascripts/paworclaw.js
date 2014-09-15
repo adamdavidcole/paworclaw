@@ -39,6 +39,7 @@ console.log("outside ang");
         this.loadPets = function () {
             $http.get('/users').success(function(docs) {
                 $scope.pets = docs;
+                console.log(JSON.stringify(docs));
                 //$scope.currPet = docs[0].pets[0];
             }).error(function () {
                 console.log('fail');
@@ -108,22 +109,25 @@ console.log("outside ang");
         });
 
         this.add = function (form) {
-            console.log(JSON.stringify(form));
-            console.log($scope.form.$valid);
-            if (form.name) form.name = form.name.trim();
-            if (form.bio) form.bio = form.bio.trim();
-            if (form.imageurl) form.imageurl = form.imageurl.trim();
+            var pet = {};
+            if (form.name) pet.name = form.name.trim();
+            else pet.name = "Boolean";
+            if (form.bio) pet.bio = form.bio.trim();
+            else pet.bio = "Lives life to the fullest";
+            if (form.imageurl) pet.imageurl = form.imageurl.trim();
+            else pet.imageurl = "/images/pet.jpg";
             form.upvotes = 1;
             form.downvotes = 1;
+            pet.hashtags = [];
             form.hashtags = form.hashtags.split(" ");
             for (var i = 0; i < form.hashtags.length; i++) {
                 if (form.hashtags[i].length < 2) continue;
                 if (form.hashtags[i].substring(0,1) === '#') {
-                    form.hashtags[i] = form.hashtags[i].substring(1,form.hashtags[i].length);
+                    pet.hashtags[i] = form.hashtags[i].substring(1,form.hashtags[i].length);
                 }
             }
 //            $scope.updatePet(form);
-            $scope.currPet = form;
+            $scope.currPet = pet;
             $scope.showAddPet = false;
             $scope.form = {};
         }
