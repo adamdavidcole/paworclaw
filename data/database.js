@@ -58,9 +58,9 @@ var user2 = {
     downvotes: 4,
     imageurl: "/images/cat.jpg"
 };
-db.users.remove({});
-upsertUser(user1);
-upsertUser(user2);
+//db.users.remove({});
+//upsertUser(user1);
+//upsertUser(user2);
 
 exports.upsertUser = upsertUser;
 exports.getUserByKey = getUserByKey;

@@ -105,7 +105,6 @@ console.log("outside ang");
             $scope.$apply(function () {
                 $scope.showAddPet = false;
             });
-            console.log(JSON.stringify($scope.form));
         });
 
         this.add = function (form) {
@@ -126,7 +125,7 @@ console.log("outside ang");
                     pet.hashtags[i] = form.hashtags[i].substring(1,form.hashtags[i].length);
                 }
             }
-//            $scope.updatePet(form);
+            $scope.updatePet(form);
             $scope.currPet = pet;
             $scope.showAddPet = false;
             $scope.form = {};
