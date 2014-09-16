@@ -6,16 +6,28 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "express": "~4.2.0",
-    "static-favicon": "~1.0.0",
-    "morgan": "~1.0.0",
-    "cookie-parser": "~1.0.1",
     "body-parser": "~1.0.0",
+    "compression": "*",
+    "cookie-parser": "~1.0.1",
     "debug": "~0.7.4",
     "ejs": "~0.8.5",
-    "q" : "*",
-    "promised-mongo" : "*",
+    "express": "~4.2.0",
+    "gulp": "^3.8.8",
+    "gulp-autoprefixer": "*",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.3.4",
+    "gulp-html-replace": "*",
+    "gulp-imagemin": "*",
+    "gulp-jshint": "^1.8.4",
+    "gulp-minify-css": "^0.3.7",
+    "gulp-uglify": "^0.3.1",
+    "imagemin-pngcrush": "*",
+    "less-middleware": "^1.0.4",
+    "mongodb": "*",
     "mongojs": "*",
-    "mongodb": "*"
+    "morgan": "~1.0.0",
+    "promised-mongo": "*",
+    "q": "*",
+    "static-favicon": "~1.0.0"
   }
 }
