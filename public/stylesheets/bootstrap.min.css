@@ -478,6 +478,10 @@
          width: 100% !important;
          height: auto;
     }
+
+    .navbar-brand img {
+        height: 30px;
+    }
 }
 
 
