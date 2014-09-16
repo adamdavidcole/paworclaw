@@ -43,7 +43,9 @@
             $http.get('/users').success(function(docs) {
                 $scope.pets = docs;
 //                console.log(JSON.stringify(docs));
-                //$scope.currPet = docs[0].pets[0];
+              //  $scope.currPet = docs[0].pets[0];
+                $scope.index = 0;
+
             }).error(function () {
                 console.log('fail');
             });
@@ -59,7 +61,6 @@
 
         this.loadPets();
 
-        $scope.index = 0;
         $scope.currPet = user1;
 
         this.getPercantage = function(pet) {
