@@ -50,7 +50,7 @@
     <div id="petinfo-container">
         <div class="petinfo">
             <p class="pinfo-name"> {{currPet.name}} </p>
-            <p class="rating above"> {{ctrl.getPercantage(currPet)}}% </p>
+            <p class="rating above" ng-class="{under50: currPet.upvotes < currPet.downvotes}" > {{ctrl.getPercantage(currPet)}}% </p>
             <p> {{currPet.bio}} </p>
             <p> {{ctrl.getHashtagString(currPet)}}</p>
         </div>

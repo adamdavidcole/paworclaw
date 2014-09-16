@@ -35,6 +35,7 @@
     app.controller('controller', ['$window', '$scope', '$http', '$timeout', function ($window, $scope, $http, $timeout) {
         $scope.justOpened = true;
         $scope.showAddPet = false;
+        $scope.isUpvote = true;
         $scope.pets = [user1];
 
         $scope.testrepeat = [{img: 'images/pet.jpg'},{img: 'images/cat.jpg'},{img:'images/husky.jpg'}];
@@ -86,12 +87,14 @@
         this.upvote = function () {
             $scope.currPet.upvotes++;
             if ($scope.currPet._id) $scope.updatePet($scope.currPet);
+            $scope.isUpvote = 'upvote';
             this.next();
         };
 
         this.downvote = function () {
             $scope.currPet.downvotes++;
             if ($scope.currPet._id) $scope.updatePet($scope.currPet);
+            $scope.isUpvote = 'downvote';
             this.next();
         };
 

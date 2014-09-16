@@ -6,19 +6,7 @@
 
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 
-body {
-    /*background-image: url("../images/pet.jpg");*/
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-color: rgba(240, 100, 41, 0.8);
-    color: #333333;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 14px;
-    height: 100%;
-    line-height: 1.42857;
-    width: 100%;
-}    
+
 
 /* HEADER */
 
@@ -339,7 +327,7 @@ body {
     text-transform: uppercase;
 }
 .petinfo .above {
-    color: #008000 !important;
+    /*color: #008000 !important;*/
 }
 
 /* DASHBOARD */
