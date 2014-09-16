@@ -18,15 +18,15 @@ var db = require('./data/database.js');
 
 var app = express();
 
-//if (process.env.NODE_ENV === PROD) {
+if (process.env.NODE_ENV === PROD) {
     app.set('views', path.join(__dirname, 'dist/views'));
     app.set('view engine', 'ejs')
     app.use(express.static(path.join(__dirname, 'dist')));
-//} else {
-//    app.set('views', path.join(__dirname, 'views'));
-//    app.set('view engine', 'ejs')
-//    app.use(express.static(path.join(__dirname, 'public')));
-//}
+} else {
+    app.set('views', path.join(__dirname, 'views'));
+    app.set('view engine', 'ejs')
+    app.use(express.static(path.join(__dirname, 'public')));
+}
 
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
