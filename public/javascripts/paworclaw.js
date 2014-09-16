@@ -4,7 +4,7 @@
 /**
  * Created by elanastroud on 9/13/14.
  */
-console.log("outside ang");
+
 (function () {
 
     var app = angular.module("paworclaw", ['ngAnimate']);
@@ -35,11 +35,14 @@ console.log("outside ang");
     app.controller('controller', ['$window', '$scope', '$http', '$timeout', function ($window, $scope, $http, $timeout) {
         $scope.justOpened = true;
         $scope.showAddPet = false;
+        $scope.pets = [user1];
+
+        $scope.testrepeat = [{img: 'images/pet.jpg'},{img: 'images/cat.jpg'},{img:'images/husky.jpg'}];
 
         this.loadPets = function () {
             $http.get('/users').success(function(docs) {
                 $scope.pets = docs;
-                console.log(JSON.stringify(docs));
+//                console.log(JSON.stringify(docs));
                 //$scope.currPet = docs[0].pets[0];
             }).error(function () {
                 console.log('fail');
@@ -112,26 +115,32 @@ console.log("outside ang");
             if (form.name) pet.name = form.name.trim();
             else pet.name = "Boolean";
             if (form.bio) pet.bio = form.bio.trim();
-            else pet.bio = "Lives life to the fullest";
+            else pet.bio = "";
             if (form.imageurl) pet.imageurl = form.imageurl.trim();
             else pet.imageurl = "/images/pet.jpg";
             pet.upvotes = 1;
             pet.downvotes = 1;
             pet.hashtags = [];
-            form.hashtags = form.hashtags.split(" ");
-            for (var i = 0; i < form.hashtags.length; i++) {
-                if (form.hashtags[i].length < 2) continue;
-                if (form.hashtags[i].substring(0,1) === '#') {
-                    pet.hashtags[i] = form.hashtags[i].substring(1,form.hashtags[i].length);
+            if (form.hashtags) {
+                form.hashtags = form.hashtags.split(" ");
+                for (var i = 0; i < form.hashtags.length; i++) {
+                    if (form.hashtags[i].length < 2) continue;
+                    if (form.hashtags[i].substring(0, 1) === '#') {
+                        pet.hashtags[i] = form.hashtags[i].substring(1, form.hashtags[i].length);
+                    }
                 }
             }
-            $scope.updatePet(form);
+            $scope.updatePet(pet);
             $scope.currPet = pet;
             $scope.showAddPet = false;
             $scope.form = {};
         }
 
 
+        this.printThese = function(sindex,index) {
+            console.log("sindex: " + sindex);
+            console.log('index: ' + index);
+        }
 
     }]);
 

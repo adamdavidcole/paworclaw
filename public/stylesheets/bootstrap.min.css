@@ -7,7 +7,7 @@
 /*! normalize.css v3.0.0 | MIT License | git.io/normalize */
 
 body {
-    background-image: url("../images/pet.jpg");
+    /*background-image: url("../images/pet.jpg");*/
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;

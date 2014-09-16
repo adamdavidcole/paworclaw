@@ -1,6 +1,84 @@
 /*@charset "UTF-8";*/
 /* CSS Document */
+body {
+    position: relative;
+    overflow: hidden;
+}
 
+.pet-images {
+    min-width: 100%;
+    min-height: 100%;
+    /* Center it like `background-position: center` */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: tcranslate(-50%, -50%);
+    z-index: -1;
+}
+
+.pet-images img {
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.pet-images {
+    -webkit-transition:all linear .5s;
+    transition:all linear .5s;
+    /*display: block !important;*/
+}
+
+.pet-images.ng-hide-add{
+    -webkit-transition:all linear .5s;
+    transition:all linear .5s;
+    opacity: 1;
+}
+
+.pet-images.ng-hide-add-active {
+    opacity: 0;
+}
+
+.pet-images.ng-hide-remove{
+    -webkit-transition:all linear .5s;
+    transition:all linear .5s;
+    opacity: 1;
+    left: 150%;
+}
+
+.pet-images.ng-hide-remove-active {
+    /*opacity: 1;*/
+    left: 50%;
+
+}
+
+/*.pet-images.ng-hide {*/
+    /*left:50%;*/
+/*}*/
+
+.check-element {
+    padding:10px;
+    border:1px solid black;
+    background:white;
+}
+
+
+
+.singlenav {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    top: 0;
+    border-width: 0 0 1px;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    background-color: #F06429;
+    border-radius: 0 0 15px 15px !important;
+    opacity: 0.8;
+
+}
 
 .pawclawbuttons button {
     opacity: .9;
@@ -53,11 +131,12 @@ body {
     margin-top: 3px;
     padding: 12px 14px;
     white-space: nowrap;
-    margin-right: 5%;
     width: 325px;
     padding-left: 25px;
     opacity: .9;
-
+    position: absolute;
+    right: 5%;
+    z-index: 9999;
 }
 
 .addpet-container input {
@@ -71,11 +150,11 @@ body {
 }
 
 .about-input {
-    margin-left: 33px;
+    margin-left: 38px;
 }
 
 .hashtags-input {
-    margin-left: 11px;
+    margin-left: 16px;
 }
 
 .image-input {
@@ -102,4 +181,11 @@ body {
 .require-url {
     margin-left: 18px;
     color: crimson;
+}
+
+.required {
+    margin-top: -12px;
+    position: relative;
+    display: block;
+    margin-bottom: -18px;
 }
