@@ -468,6 +468,10 @@
         width: 100%;
         margin-left: 0px;
     }
+
+    .pet-images img {
+         min-height: initial !important;
+    }
 }
 
 

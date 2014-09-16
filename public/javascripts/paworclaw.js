@@ -135,8 +135,10 @@
             }
             $scope.updatePet(pet);
             $scope.currPet = pet;
+            $scope.pets.splice($scope.index+1,0,pet);
             $scope.showAddPet = false;
             $scope.form = {};
+            this.next();
         }
 
 
