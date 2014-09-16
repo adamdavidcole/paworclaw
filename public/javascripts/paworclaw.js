@@ -115,14 +115,18 @@
 
         this.add = function (form) {
             var pet = {};
+
+            var valid = true;
             if (form.name) pet.name = form.name.trim();
-            else pet.name = "Boolean";
+            else valid = false;
             if (form.bio) pet.bio = form.bio.trim();
             else pet.bio = "";
-            if (form.imageurl) pet.imageurl = form.imageurl.trim();
-            else pet.imageurl = "/images/pet.jpg";
+            if (form.imageurl && $scope.isImageURl(form.imageurl)) pet.imageurl = form.imageurl.trim();
+            else valid = false;
+
             pet.upvotes = 1;
             pet.downvotes = 1;
+
             pet.hashtags = [];
             if (form.hashtags) {
                 form.hashtags = form.hashtags.split(" ");
@@ -133,13 +137,27 @@
                     }
                 }
             }
-            $scope.updatePet(pet);
-            $scope.currPet = pet;
-            $scope.pets.splice($scope.index+1,0,pet);
+
+            if (valid) {
+                $scope.updatePet(pet);
+                $scope.currPet = pet;
+                $scope.pets.splice($scope.index + 1, 0, pet);
+            }
             $scope.showAddPet = false;
             $scope.form = {};
             this.next();
         };
+
+         $scope.isImageURl = function (url) {
+            if (url || url.length <= 3) return false;
+            else {
+                var ext = url.substring(url.length - 4, url.length);
+                console.log(ext);
+                if (ext !== '.jpg'  && ext !== '.png' && ext !== '.gif') return false;
+                else return true;
+            }
+        };
+
 
 
         this.printThese = function(sindex,index) {
