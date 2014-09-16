@@ -1,1 +1,1 @@
-web: NODE_ENV=prod npm start
+web: npm start
