@@ -122,7 +122,10 @@
             if (form.bio) pet.bio = form.bio.trim();
             else pet.bio = "";
             if (form.imageurl && $scope.isImageURl(form.imageurl)) pet.imageurl = form.imageurl.trim();
-            else valid = false;
+            else {
+                valid = false;
+                console.log("invalid image url");
+            }
 
             pet.upvotes = 1;
             pet.downvotes = 1;
@@ -142,14 +145,21 @@
                 $scope.updatePet(pet);
                 $scope.currPet = pet;
                 $scope.pets.splice($scope.index + 1, 0, pet);
+            } else {
+                console.log("invalid entry");
             }
+
             $scope.showAddPet = false;
             $scope.form = {};
             this.next();
         };
 
          $scope.isImageURl = function (url) {
-            if (url || url.length <= 3) return false;
+            if (!url || url.length <= 3) {
+                console.log("url link too short");
+                console.log(url);
+                return false;
+            }
             else {
                 var ext = url.substring(url.length - 4, url.length);
                 console.log(ext);
@@ -166,11 +176,6 @@
         };
 
     }]);
-
-
-
-
-
 
 })();
 
