@@ -420,14 +420,19 @@
 
 @media(max-width:767px){
     body {
-        background-size: contain;
+        background-size: contain !important;
+        background-position: center 50px !important;
     }
+
+
 
     .pawclawbuttons {
         height: 185px;
         min-width: 160px;
         text-align: center !important;
         width: 100%;
+        position: absolute;
+        top: 300px
     }
     
     #welcome {
@@ -470,6 +475,7 @@
         display: block;
         width: 100%;
         margin-left: 0px;
+        visibility: hidden;
     }
 
     .pet-images {
