@@ -39,25 +39,50 @@
 
         $scope.testrepeat = [{img: 'images/pet.jpg'},{img: 'images/cat.jpg'},{img:'images/husky.jpg'}];
 
+
+        function shuffle(array) {
+            var currentIndex = array.length, temporaryValue, randomIndex ;
+
+            // While there remain elements to shuffle...
+            while (0 !== currentIndex) {
+
+                // Pick a remaining element...
+                randomIndex = Math.floor(Math.random() * currentIndex);
+                currentIndex -= 1;
+
+                // And swap it with the current element.
+                temporaryValue = array[currentIndex];
+                array[currentIndex] = array[randomIndex];
+                array[randomIndex] = temporaryValue;
+            }
+
+            return array;
+        }
+
         this.loadPets = function () {
             $http.get('/users').success(function(docs) {
                 $scope.pets = docs;
-//                console.log(JSON.stringify(docs));
-              //  $scope.currPet = docs[0].pets[0];
+                var first = docs[0];
+                $scope.pets = shuffle($scope.pets);
+                //$scope.pets.unshift(first);
                 $scope.index = 0;
+//                $scope.$apply();
 
             }).error(function () {
                 console.log('fail');
             });
         };
 
-        $scope.updatePet = function (pet) {
+
+            $scope.updatePet = function (pet) {
             $http.post('/users/update',pet).success(function () {
                 console.log('user posting');
             }).error(function () {
                 console.log('failed to post');
             });
         };
+
+
 
         this.loadPets();
 

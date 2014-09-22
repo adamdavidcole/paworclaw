@@ -15,6 +15,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
     <script src ="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-animate.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="/bower_components/cover/jquery.cover.js"></script>
     <!-- build:scripts -->
     <script src="javascripts/dummydata.js"></script>
     <script src ="javascripts/paworclaw.js"></script>
@@ -23,7 +24,7 @@
 
 
 
-<body id="homepage" ng-controller="controller as ctrl">
+<body id="homepage" ng-controller="controller as ctrl" style="background-image: url('{{currPet.imageurl}}')">
 
 
     <div class="singlenav" role="navigation">
@@ -81,13 +82,71 @@
             </div>
         </div>
     </div>
-    <div class="pet-images" ng-repeat="pet in pets" ng-show="index === $index">
-        <img src="{{pets[$index].imageurl}}">
-    </div>
+    <!--<div class="pet-images" ng-repeat="pet in pets" ng-show="index === $index">-->
+        <!--<img src="{{pets[$index].imageurl}}">-->
+    <!--</div>-->
 
     <footer>
         <p>&copy; Company 2014</p>
     </footer>
+
+    <div class="hidden">
+        <script type="text/javascript">
+            <!--//--><![CDATA[//><!--
+            var images = new Array();
+            function preload() {
+                for (i = 0; i < preload.arguments.length; i++) {
+                    images[i] = new Image()
+                    images[i].src = preload.arguments[i]
+                    console.log('preloaded');
+                }
+            };
+            preload(
+                    "../images/mare.jpg",
+                    "../images/betafish.jpg",
+                    "../images/dalmation.jpg",
+                    "../images/tiger.jpg",
+                    "../images/ferret.jpg",
+                    "../images/guinea.jpg",
+                    "../images/macaw.jpg",
+                    "../images/siamese.jpg",
+                    "../images/dachshund.jpg",
+                    "../images/gecko.jpg",
+                    "../images/fish.jpg",
+                    "../images/fancycat.jpg",
+                    "../images/rabbit2.png",
+                    "../images/guinea2.jpg",
+                    "../images/tabby.jpg",
+                    "../images/husky2.jpg",
+                    "../images/bulldog.jpg",
+                    "../images/siamese2.jpg",
+                    "../images/persian.jpg",
+                    "../images/pufferfish.jpg",
+                    "../images/rabbit.jpg",
+                    "../images/golden.jpg",
+                    "../images/pet.jpg",
+                    "../images/horse2.jpg",
+                    "../images/cavelier.jpg",
+                    "../images/turtle.jpg",
+                    "../images/cockatoo.jpg",
+                    "../images/snake.jpg",
+                    "../images/bunny.jpg"
+            )
+            //--><!]]>
+        </script>
+    </div>
 </div>
+<!--<script type="text/javascript">-->
+    <!--$( document ).ready(function() {-->
+
+        <!--var $element = $('.pet-images');-->
+        <!--$element.cover();-->
+
+        <!--// Update on resize-->
+        <!--$(window).resize(function () {-->
+            <!--$element.cover('set');-->
+        <!--});-->
+    <!--});-->
+<!--</script>-->
 </body>
 </html>
