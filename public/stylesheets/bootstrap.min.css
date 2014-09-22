@@ -475,7 +475,11 @@
         display: block;
         width: 100%;
         margin-left: 0px;
-        visibility: hidden;
+        /*visibility: hidden;*/
+    }
+
+    #petinfo-container p {
+        display: inline-block;
     }
 
     .pet-images {
