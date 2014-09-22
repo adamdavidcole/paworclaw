@@ -419,6 +419,10 @@
 
 
 @media(max-width:767px){
+    body {
+        background-size: contain;
+    }
+
     .pawclawbuttons {
         height: 185px;
         min-width: 160px;
