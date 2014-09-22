@@ -43,10 +43,9 @@ gulp.task("css", function() {
 /* concats, and minifies settings-app files */
 gulp.task('javascripts', function() {
     gulp.src([
-        "public/bower_components/cover/jquery.cover.js",
         "public/javascripts/*.js"
     ])
-        .pipe(concat("paworclaw.js"))
+        //.pipe(concat("paworclaw.js"))
         .pipe(uglify())
         .pipe(gulp.dest('dist/javascripts/'));
 });
@@ -71,9 +70,9 @@ gulp.task('copyViews', function() {
     gulp.src([
         './views/index.ejs'
     ])
-        .pipe(htmlreplace({
-            'scripts': '/javascripts/paworclaw.js'
-        }))
+//        .pipe(htmlreplace({
+//            'scripts': '/javascripts/paworclaw.js'
+//        }))
         .pipe(gulp.dest('dist/views'));
 });
 

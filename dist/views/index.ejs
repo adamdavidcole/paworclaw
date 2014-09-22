@@ -8,13 +8,22 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Paw or Claw | Tinder for Dogs!</title>
-    <!-- Bootstrap core CSS -->
-    <!--<link href="javascripts/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">-->
+
     <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
     <link href="stylesheets/styles.css" rel="stylesheet">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+    <script src ="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-animate.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- build:scripts -->
+    <script src="javascripts/dummydata.js"></script>
+    <script src ="javascripts/paworclaw.js"></script>
+    <!-- endbuild -->
 </head>
 
-<body id="homepage" ng-controller="controller as ctrl" >
+
+
+<body id="homepage" ng-controller="controller as ctrl" style="background-image: url('{{currPet.imageurl}}')">
 
 
     <div class="singlenav" role="navigation">
@@ -72,27 +81,13 @@
             </div>
         </div>
     </div>
-    <div class="pet-images" ng-repeat="pet in pets" ng-show="index === $index">
-        <img src="{{pets[$index].imageurl}}">
-    </div>
+    <!--<div class="pet-images" ng-repeat="pet in pets" ng-show="index === $index">-->
+        <!--<img src="{{pets[$index].imageurl}}">-->
+    <!--</div>-->
 
     <footer>
         <p>&copy; Company 2014</p>
     </footer>
 </div>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
-<script src ="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-animate.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-<script src="/javascripts/paworclaw.js"></script>
-<script type="text/javascript">
-//    $(function(){
-//        var $element = $('.pet-images');
-//        $element.cover();
-//        $(window).resize(function() {
-//            $element.cover('set');
-//        });
-//    });
-</script>
 </body>
 </html>
