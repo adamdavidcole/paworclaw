@@ -23,7 +23,7 @@
 
 
 
-<body id="homepage" ng-controller="controller as ctrl" style="background-image: url('{{currPet.imageurl}}')">
+<body id="homepage" ng-controller="controller as ctrl">
 
 
     <div class="singlenav" role="navigation">
@@ -81,9 +81,9 @@
             </div>
         </div>
     </div>
-    <!--<div class="pet-images" ng-repeat="pet in pets" ng-show="index === $index">-->
-        <!--<img src="{{pets[$index].imageurl}}">-->
-    <!--</div>-->
+    <div class="pet-images" ng-repeat="pet in pets" ng-show="index === $index">
+        <img src="{{pets[$index].imageurl}}">
+    </div>
 
     <footer>
         <p>&copy; Company 2014</p>
