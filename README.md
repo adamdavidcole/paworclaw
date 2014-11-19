@@ -1,6 +1,5 @@
 paworclaw
 =========
 
-Tinder for Dogs
-
+Tinder for Dogs: http://paw-or-claw.herokuapp.com/
 --
