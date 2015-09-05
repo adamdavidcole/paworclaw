@@ -73,7 +73,6 @@
             });
         };
 
-
             $scope.updatePet = function (pet) {
             $http.post('/users/update',pet).success(function () {
                 console.log('user posting');
@@ -81,8 +80,6 @@
                 console.log('failed to post');
             });
         };
-
-
 
         this.loadPets();
 
@@ -106,6 +103,7 @@
             $scope.index++;
             if ($scope.index >= $scope.pets.length) $scope.index = 0;
             $scope.currPet = $scope.pets[$scope.index];
+            $('body').css('background-image', 'url(' + $scope.currPet.imageurl + ')');
         };
 
 
@@ -193,9 +191,7 @@
             }
         };
 
-
-
-
+        console.log($scope.currPet)
 
         this.printThese = function(sindex,index) {
             console.log("sindex: " + sindex);

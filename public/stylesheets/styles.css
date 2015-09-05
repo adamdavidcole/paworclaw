@@ -1,7 +1,7 @@
 /*@charset "UTF-8";*/
 /* CSS Document */
 body {
-    /*background-image: url("../images/pet.jpg");*/
+    background-image: url("../images/pet.jpg");
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
