@@ -79,5 +79,5 @@ gulp.task('copyViews', function() {
 
 // build -- complete build build task
 gulp.task('build',
-    ['lint', 'css', "minify-images", 'javascripts', 'copyViews']
+    ['lint', 'css', 'javascripts', 'copyViews']
 );

@@ -39,6 +39,7 @@
 
         $scope.testrepeat = [{img: 'images/pet.jpg'},{img: 'images/cat.jpg'},{img:'images/husky.jpg'}];
 
+        console.log('starting up')
 
         function shuffle(array) {
             var currentIndex = array.length, temporaryValue, randomIndex ;
@@ -60,6 +61,7 @@
         }
 
         this.loadPets = function () {
+            console.log('loading pets')
             $http.get('/users').success(function(docs) {
                 $scope.pets = docs;
                 var first = docs[0];
