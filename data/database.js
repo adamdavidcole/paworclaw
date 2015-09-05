@@ -1,13 +1,13 @@
 /** database **/
 var data = require('../public/javascripts/dummydata.js')
+var mongojs = require('mongojs')
 
 var databaseUrl= process.env.MONGOLAB_URI ||
     process.env.MONGOHQ_URL ||
     'mongodb://localhost/paworclaw';
 
-
 var collections = ["users"]
-var db = require("mongojs").connect(databaseUrl, collections);
+var db = mongojs(databaseUrl, collections);
 
 var guid = function() {
     function s4() {
